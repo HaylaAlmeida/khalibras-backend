@@ -1,67 +1,78 @@
 # khalibras-backend
 
-This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
+Essa aplicação foi gerada utilizando [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) com
 [initial project layout](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
 
-## Install dependencies
+## Para conectar com o MongoDB
 
-By default, dependencies were installed when this application was generated.
-Whenever dependencies in `package.json` are changed, run the following command:
+- Crie um arquivo .env
+- Digite:
+```
+DATABASE_URL = [link_para_o_database]
+```
+Exemplo de link:
+```
+mongodb+srv://hayla:<password>@khalibras.mongodb.net/test
+```
+
+## Instalar dependências
+
+Por padrão, dependências são instaladas onde essa aplicação é gerada. Quando as dependências em `package.json` forem alteradas, rode o comando a seguir:
 
 ```sh
 npm install
 ```
 
-To only install resolved dependencies in `package-lock.json`:
+Para instalar apenas dependências resolvidas em `package-lock.json`:
 
 ```sh
 npm ci
 ```
 
-## Run the application
+## Rodar a aplicação
 
 ```sh
 npm start
 ```
 
-You can also run `node .` to skip the build step.
+Você também pode rodar `node .` para pular o processo de build.
 
-Open http://127.0.0.1:3000 in your browser.
+Abra http://127.0.0.1:3000 no seu navegador.
 
-## Rebuild the project
+## "Rebuildar" o projeto
 
-To incrementally build the project:
+Para incrementalmente "buildar" o projeto:
 
 ```sh
 npm run build
 ```
 
-To force a full build by cleaning up cached artifacts:
+Para forçar um build total limpando os artefatos em cache:
 
 ```sh
 npm run rebuild
 ```
 
-## Fix code style and formatting issues
+## Para consertar o estilo de código e problemas de formatação:
 
 ```sh
 npm run lint
 ```
 
-To automatically fix such issues:
+Para corrigir automaticamente esses problemas:
 
 ```sh
 npm run lint:fix
 ```
 
-## Other useful commands
+## Outros comandos úteis
 
-- `npm run migrate`: Migrate database schemas for models
-- `npm run openapi-spec`: Generate OpenAPI spec into a file
-- `npm run docker:build`: Build a Docker image for this application
-- `npm run docker:run`: Run this application inside a Docker container
+- `npm run migrate`: Migrar esquemas de banco de dados para modelos
+- `npm run openapi-spec`: Gerar especificação OpenAPI em um arquivo
+- `npm run docker:build`: Criar uma imagem do Docker para este aplicativo
+- `npm run docker:run`: Executar este aplicativo dentro de um contêiner do Docke
 
-## Tests
+## Testes
 
 ```sh
 npm test
@@ -73,3 +84,5 @@ Please check out [LoopBack 4 documentation](https://loopback.io/doc/en/lb4/) to
 understand how you can continue to add features to this application.
 
 [![LoopBack](https://github.com/loopbackio/loopback-next/raw/master/docs/site/imgs/branding/Powered-by-LoopBack-Badge-(blue)-@2x.png)](http://loopback.io/)
+
+ 
