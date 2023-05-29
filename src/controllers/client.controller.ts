@@ -19,7 +19,7 @@ import {
 } from '@loopback/rest';
 import {User} from '../models';
 import {UserRepository} from '../repositories';
-import {MY_JWT_ADMIN_EMPLOYEE, PermissionKeys} from '../interceptor/permission-keys';
+import {MY_JWT_CLIENT, PermissionKeys} from '../interceptor/permission-keys';
 import {BcryptHasher} from '../services/hash.password';
 import {PasswordHasherBindings} from '../keys';
 import {inject} from '@loopback/core';
@@ -34,8 +34,8 @@ export class ClientController {
     public hasher: BcryptHasher,
   ) {}
 
-  @authenticate(MY_JWT_ADMIN_EMPLOYEE)
-  @post('/employees')
+  @authenticate(MY_JWT_CLIENT)
+  @post('/clients')
   @response(200, {
     description: 'User model instance',
     content: {'application/json': {schema: getModelSchemaRef(User)}},
@@ -61,8 +61,8 @@ export class ClientController {
     return this.userRepository.create(user);
   }
 
-  @authenticate(MY_JWT_ADMIN_EMPLOYEE)
-  @get('/employees/count')
+  @authenticate(MY_JWT_CLIENT)
+  @get('/clients/count')
   @response(200, {
     description: 'User model count',
     content: {'application/json': {schema: CountSchema}},
@@ -73,8 +73,8 @@ export class ClientController {
     return this.userRepository.count({role: PermissionKeys.CLIENT, ...where});
   }
 
-  @authenticate(MY_JWT_ADMIN_EMPLOYEE)
-  @get('/employees')
+  @authenticate(MY_JWT_CLIENT)
+  @get('/clients')
   @response(200, {
     description: 'Array of User model instances',
     content: {
@@ -92,8 +92,8 @@ export class ClientController {
     return this.userRepository.find({where: {role: PermissionKeys.CLIENT, ...filter?.where}, ...filter});
   }
 
-  @authenticate(MY_JWT_ADMIN_EMPLOYEE)
-  @patch('/employees')
+  @authenticate(MY_JWT_CLIENT)
+  @patch('/clients')
   @response(200, {
     description: 'User PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -114,8 +114,8 @@ export class ClientController {
     return this.userRepository.updateAll(user, where);
   }
 
-  @authenticate(MY_JWT_ADMIN_EMPLOYEE)
-  @get('/employees/{id}')
+  @authenticate(MY_JWT_CLIENT)
+  @get('/clients/{id}')
   @response(200, {
     description: 'User model instance',
     content: {
@@ -132,8 +132,8 @@ export class ClientController {
     return this.userRepository.findById(id, filter);
   }
 
-  @authenticate(MY_JWT_ADMIN_EMPLOYEE)
-  @patch('/employees/{id}')
+  @authenticate(MY_JWT_CLIENT)
+  @patch('/clients/{id}')
   @response(204, {
     description: 'User PATCH success',
   })
@@ -153,8 +153,8 @@ export class ClientController {
     await this.userRepository.updateById(id, user);
   }
 
-  @authenticate(MY_JWT_ADMIN_EMPLOYEE)
-  @put('/employees/{id}')
+  @authenticate(MY_JWT_CLIENT)
+  @put('/clients/{id}')
   @response(204, {
     description: 'User PUT success',
   })
@@ -168,8 +168,8 @@ export class ClientController {
     await this.userRepository.replaceById(id, user);
   }
 
-  @authenticate(MY_JWT_ADMIN_EMPLOYEE)
-  @del('/employees/{id}')
+  @authenticate(MY_JWT_CLIENT)
+  @del('/clients/{id}')
   @response(204, {
     description: 'User DELETE success',
   })
